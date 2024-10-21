@@ -1,4 +1,4 @@
-package com.shopping.inventory.service;
+package com.shopping.inventory.repository;
 
 import java.util.List;
 

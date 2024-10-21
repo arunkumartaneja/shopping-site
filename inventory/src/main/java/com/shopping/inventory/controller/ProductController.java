@@ -27,12 +27,12 @@ public class ProductController {
 
 	@GetMapping
 	public List<Product> getProducts() {
-		return productService.getProducts();
+		return productService.findAll();
 	}
 
 	@PostMapping("/add")
 	public Product addProducts(Product product) {
-		return productService.saveProduct(product);
+		return productService.save(product);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -96,7 +96,7 @@ public class ProductController {
 				counter++;
 			}
 			
-			productService.saveProducts(products);
+//			productService.saveProducts(products);
 		} catch (IOException e) {
 			System.out.println("counter ## " + counter);
 			e.printStackTrace();
