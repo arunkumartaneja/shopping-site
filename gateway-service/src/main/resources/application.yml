@@ -25,7 +25,7 @@ spring:
           - id: order-service
             uri: lb://ORDER-SERVICE
             predicates:
-              - Path=/orders/**
+              - Path=/order/**
             filters:
               - StripPrefix=1
           - id: payment-service
@@ -41,3 +41,18 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: '%d{yyyy-MM-dd} - %logger{36} - %msg%n'
+
+management:
+  zipkin:
+    enabled: true
+    endpoint: http://localhost:9411/api/v2/spans
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0

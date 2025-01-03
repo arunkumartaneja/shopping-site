@@ -4,15 +4,19 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shopping.inventory.model.Product;
@@ -21,6 +25,8 @@ import com.shopping.inventory.service.ProductService;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
 	private ProductService productService;
@@ -103,5 +109,18 @@ public class ProductController {
 		}
 		return products;
 	}
+	
+	@GetMapping("/check")
+    public boolean checkProductAvailability(@RequestParam String productId, @RequestParam int quantity) {
+		logger.info("checkProductAvailability date: {},  productId: {}, quantity: {}",new Date().toString(), productId, quantity);
+		
+		int availableQuantity = getAvailableQuantity(productId);
+        return availableQuantity >= quantity;
+    }
+
+    private int getAvailableQuantity(String productId) {
+        // Mock inventory data
+        return 100; // Assume 100 units are available for any product
+    }
 
 }
