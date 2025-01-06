@@ -26,7 +26,7 @@ public class OrderController {
 	}
 
 	@GetMapping("/place")
-	public String placeOrder(@RequestParam String productId, @RequestParam int quantity) {
+	public String placeOrder(@RequestParam int quantity) {
 		return orderService.placeOrder(quantity);
 	}
 }
