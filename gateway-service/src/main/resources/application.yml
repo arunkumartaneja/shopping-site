@@ -47,14 +47,19 @@ eureka:
 logging:
   level:
     root: INFO
+    brave: DEBUG
+    zipkin2: DEBUG
+    io:
+      micrometer:
+        tracing: DEBUG
   pattern:
     console: '%d{yyyy-MM-dd} - %logger{36} - %msg%n'
 
 management:
   zipkin:
-    enabled: true
-    endpoint: http://localhost:9411/api/v2/spans
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
   tracing:
-    enabled: true
+    enabled: 'true'
     sampling:
       probability: 1.0
