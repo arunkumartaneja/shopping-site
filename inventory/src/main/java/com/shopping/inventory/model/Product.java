@@ -1,11 +1,15 @@
 package com.shopping.inventory.model;
 
+import java.io.Serializable;
+
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class Product {
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 1500333661782910889L;
 
 	private String id;
 	private String title;

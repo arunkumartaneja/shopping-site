@@ -2,10 +2,12 @@ package com.shopping.inventory.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ public class ProductService {
 
 	private final String url = "https://dummyjson.com/products";
 
+	@Cacheable(cacheNames = "inventory", key = "'products'")
 	public Inventory findAll() {
 		logger.info("getting products list from {}", url);
 		ResponseEntity<Inventory> response = restTemplate.exchange(url, HttpMethod.GET, null,
@@ -44,9 +47,11 @@ public class ProductService {
 		return new ArrayList<>();
 	}
 
+	@Cacheable(cacheNames = "inventory", key = "#productId")
 	public int getAvailableQuantity(String productId) {
-		// Mock inventory data
-		return 100; // Assume 100 units are available for any product
+		Random r = new Random();
+		int randomInt = r.nextInt(100) + 1;
+		return randomInt; // Assume 1 to 100 units are available for any product
 	}
 
 }
