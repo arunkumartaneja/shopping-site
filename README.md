@@ -1,6 +1,8 @@
 # shopping site
 
-
+# Important links
+- https://kafka.apache.org/quickstart
+- https://zipkin.io/pages/quickstart.html
 
 
 # Architecture Flow:
