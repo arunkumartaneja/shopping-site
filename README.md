@@ -1,5 +1,8 @@
 # shopping site
 
+# local urls
+- Eureka Server http://localhost:8761/   
+
 # Important links
 - https://kafka.apache.org/quickstart
 - https://zipkin.io/pages/quickstart.html
