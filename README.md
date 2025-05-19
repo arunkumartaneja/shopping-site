@@ -1,7 +1,9 @@
 # shopping site
 
 # local urls
-- Eureka Server http://localhost:8761/   
+- Eureka Server http://localhost:8761/
+- Swagger UI - http://localhost:8082/api/v1/swagger-ui/index.html
+- Order API - http://localhost:8888/order/api/v1/order/place?quantity=6
 
 # Important links
 - https://kafka.apache.org/quickstart
