@@ -14,8 +14,8 @@ public class PaymentClient {
 	@Autowired
 	private WebClient.Builder webClientBuilder;
 
-	public String pay(String orderId) {
-		String url = "http://GATEWAY-SERVICE/payments/api/v1/pay?orderId=" + orderId;
+	public String pay(String orderId, String productId) {
+		String url = "http://GATEWAY-SERVICE/payments/api/v1/payment/pay?orderId=" + orderId + "&productId=" + productId;
 
 		// Use block() only for synchronous calls
 //		Boolean isAvailable = webClient.get().uri(url).retrieve().bodyToMono(Boolean.class).block();
