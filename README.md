@@ -2,7 +2,7 @@
 
 # local environment
 - Eureka Server http://localhost:8761/
-- Swagger UI - http://localhost:8082/api/v1/swagger-ui/index.html
+- Swagger UI - http://localhost:8888/swagger-ui/index.html
 - Order API - http://localhost:8888/order/api/v1/order/place?quantity=6
 
 ### Eureka Server
