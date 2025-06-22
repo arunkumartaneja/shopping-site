@@ -63,3 +63,12 @@ management:
     enabled: 'true'
     sampling:
       probability: 1.0
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: inventory-service
+        url: /inventory/api/v1/v3/api-docs
+      - name: order-service
+        url: /order/api/v1/v3/api-docs
